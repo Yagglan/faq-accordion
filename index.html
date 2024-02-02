@@ -14,11 +14,18 @@
   </head>
   <body>
     <div class="main">
-      <img
-        class="backgroundImage"
-        src="./assets/images/background-pattern-mobile.svg"
-        alt="background pattern"
-      />
+      <picture>
+        <source
+          media="(min-width: 890px)"
+          srcset="./assets/images/background-pattern-desktop.svg"
+        />
+        <img
+          class="backgroundImage"
+          src="./assets/images/background-pattern-mobile.svg"
+          alt="background pattern"
+        />
+      </picture>
+
       <div class="cardWrapper">
         <section class="card">
           <div class="faqContent">

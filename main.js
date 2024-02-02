@@ -5,12 +5,19 @@ const buttons = [
   document.getElementById("button4"),
 ];
 
-const answers = [
-  document.getElementById("answer1"),
-  document.getElementById("answer2"),
-  document.getElementById("answer3"),
-  document.getElementById("answer4"),
-];
+buttons.forEach((button, i) => {
+  button.addEventListener("click", (event) => {
+    answerDisplay(i);
+  });
+});
+
+document.querySelectorAll(".question").forEach((question, i) => {
+  question.addEventListener("click", (event) => {
+    answerDisplay(i);
+  });
+});
+
+const answers = document.querySelectorAll("p");
 
 function answerDisplay(id) {
   if (answers[id].classList.contains("answerOff")) {
@@ -23,16 +30,3 @@ function answerDisplay(id) {
       '<img src="./assets/images/icon-plus.svg" alt="" class="plusIcon" id="button1"/>';
   }
 }
-
-buttons[0].addEventListener("click", (event) => {
-  answerDisplay(0);
-});
-buttons[1].addEventListener("click", (event) => {
-  answerDisplay(1);
-});
-buttons[2].addEventListener("click", (event) => {
-  answerDisplay(2);
-});
-buttons[3].addEventListener("click", (event) => {
-  answerDisplay(3);
-});

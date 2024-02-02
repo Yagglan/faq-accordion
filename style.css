@@ -1,8 +1,32 @@
 :root {
   --darkPurple: rgba(48, 21, 52, 1);
   --palePurple: rgba(139, 105, 144, 1);
+  --lightPink: rgb(249, 240, 255);
+  --accentPink: rgba(173, 40, 235, 1);
 
   --mainFont: "Work Sans", sans-serif;
+
+  --headingSize: 3.5rem;
+  --questionSize: 1.125rem;
+  --answerSize: 1rem;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
 }
 
 body {
@@ -12,11 +36,14 @@ body {
   height: 100vh;
   border: 1px solid black;
   background: black;
+  overflow: hidden;
 }
+
+/*? PAGE SETUP */
 
 .main {
   height: 100%;
-  background-color: hsl(275, 100%, 97%);
+  background-color: var(--lightPink);
   align-items: center;
   font-family: var(--mainFont);
 }
@@ -32,6 +59,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/*? CARD */
 
 .card {
   width: 20.4375rem;
@@ -52,6 +81,13 @@ body {
   margin: 24px;
 }
 
+.card::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/*? HEADING */
+
 .headingWrapper {
   display: flex;
   align-items: center;
@@ -70,8 +106,10 @@ body {
   color: var(--darkPurple);
 }
 
+/* ? FAQ CONTENT */
+
 .sectionWrapper {
-  border-bottom: 1px solid rgba(248, 238, 255, 1);
+  border-bottom: 1px solid var(--lightPink);
 }
 
 .questionWrapper {
@@ -97,6 +135,11 @@ body {
   font-weight: 600;
 }
 
+.question:hover {
+  color: var(--accentPink);
+  cursor: pointer;
+}
+
 .button {
   border: none;
   background: none;
@@ -104,24 +147,6 @@ body {
   cursor: pointer;
   background-color: transparent;
   transition: all 1s ease-in-out;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  100% {
-    opacity: 1;
-  }
-  0% {
-    opacity: 0;
-  }
 }
 
 .answerOff {
@@ -135,5 +160,27 @@ body {
   line-height: 150%;
   margin-top: 0px;
   margin-bottom: 20px;
-  animation: fade-in 500ms forwards;
+  animation: fade-in 400ms forwards;
+}
+
+@media (min-width: 650px) {
+  .card {
+    width: 600px;
+  }
+
+  .faqContent {
+    margin: 2.5rem;
+  }
+
+  .heading {
+    font-size: var(--headingSize);
+  }
+
+  .question {
+    font-size: var(--questionSize);
+  }
+
+  .answerOn {
+    font-size: var(--answerSize);
+  }
 }
