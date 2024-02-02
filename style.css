@@ -1,5 +1,6 @@
 :root {
   --darkPurple: rgba(48, 21, 52, 1);
+  --palePurple: rgba(139, 105, 144, 1);
 
   --mainFont: "Work Sans", sans-serif;
 }
@@ -7,8 +8,6 @@
 body {
   margin: 0;
   padding: 0;
-  width: 375px;
-  height: 812px;
   width: 100vw;
   height: 100vh;
   border: 1px solid black;
@@ -24,8 +23,6 @@ body {
 
 .backgroundImage {
   width: 100%;
-  /* max-height: 50%;
-  max-width: 100%; */
   z-index: 0;
   position: absolute;
 }
@@ -34,27 +31,30 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  .card {
-    width: 20.4375rem;
-    height: 32.9375rem;
-    background-color: white;
-    border: 1px solid hsl(292, 16%, 49%);
-    border-radius: 0.5rem;
-    box-shadow: 0px 8px 56px -36px rgba(80, 0, 118, 0.75);
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+}
 
-    .faqContent {
-      height: 24px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 24px;
-    }
-  }
+.card {
+  width: 20.4375rem;
+  height: max-content;
+  max-height: 533px;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 8px 56px -36px rgba(80, 0, 118, 0.75);
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+}
+
+.faqContent {
+  margin: 24px;
+}
+
+.headingWrapper {
+  display: flex;
+  align-items: center;
 }
 
 .starIcon {
@@ -64,6 +64,76 @@ body {
 
 .heading {
   font-size: 32px;
-  margin: 0px 24px;
+  font-weight: 700;
+  margin: 0;
+  margin-left: 24px;
   color: var(--darkPurple);
+}
+
+.sectionWrapper {
+  border-bottom: 1px solid rgba(248, 238, 255, 1);
+}
+
+.questionWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.plusIcon {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  transition: fade-out 500ms forwards;
+  background-color: transparent;
+}
+
+.question {
+  font-size: 1rem;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: var(--darkPurple);
+  font-weight: 600;
+}
+
+.button {
+  border: none;
+  background: none;
+  margin-left: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
+}
+
+.answerOff {
+  display: none;
+  opacity: 0;
+}
+
+.answerOn {
+  font-size: 14px;
+  color: var(--palePurple);
+  line-height: 150%;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  animation: fade-in 500ms forwards;
 }
